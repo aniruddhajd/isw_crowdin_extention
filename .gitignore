@@ -1,0 +1,19 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Local env / credentials
+.env
+.env.local
+*.pem
+*.key
+api.txt
+env.txt
+New Text Document.txt
+

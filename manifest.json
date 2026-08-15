@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "Crowdin Translator - isw.co.in",
+  "version": "1.1.0",
+  "description": "AI-powered Crowdin string translator by isw.co.in.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "identity",
+    "identity.email"
+  ],
+  "host_permissions": [
+    "https://crowdin.com/*",
+    "https://*.isw.co.in/*",
+    "http://172.18.1.17/*",
+    "*://*/*"
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://crowdin.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "externally_connectable": {
+    "matches": ["https://*.isw.co.in/*"]
+  },
+  "oauth2": {
+    "client_id": "852983123073-n58mrr2hii023osio2g42tgvpmmbm1gr.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  }
+}

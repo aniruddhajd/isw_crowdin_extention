@@ -1,0 +1,96 @@
+upgrade the code to detect another link like this:
+https://servicedesk.isha.in/projects/TAM/queues/custom/3212/TAM-14102
+this will come for different ticket.
+when this page is opend detect the below area which have the video source url.
+<li id="rowForcustomfield_12202" class="item">
+        <div class="wrap">
+            <strong class="name">
+                                    <label for="customfield_12202">VP_Source Video Details:</label>
+                            </strong>
+            <div id="customfield_12202-val" class="value type-textarea editable-field inactive" data-fieldtype="textarea" data-fieldtypecompletekey="com.atlassian.jira.plugin.system.customfieldtypes:textarea" title="Click to edit">
+                                                  <div id="field-customfield_12202" class="twixi-block expanded">
+            <div class="twixi-wrap verbose">
+                <a href="#" class="twixi" title="Follow link"><span class="icon-default aui-icon aui-icon-small aui-iconfont-expanded"><span>Hide</span></span></a>
+                <div class="flooded">
+                    Topical Day - Summer Solstice  - 21 June
+<br>
+
+<br>
+AI Dub <a href="https://www.instagram.com/reels/DXq9GyAk6kF/" title="Follow link">https://www.instagram.com/reels/DXq9GyAk6kF/</a>
+<br>
+
+<br>
+Due date: 20 June
+                </div>
+            </div>
+            <div class="twixi-wrap concise">
+                <a href="#" class="twixi" title="Follow link"><span class="icon-default aui-icon aui-icon-small aui-iconfont-collapsed"><span>Show</span></span></a>
+                <div class="flooded">
+                                            Topical Day - Summer Solstice  - 21 June
+ 
+
+ 
+AI Dub  https://www.instagram.com/reels/DXq9GyAk6kF/ 
+ 
+
+ 
+Due date: 20 June
+                                    </div>
+            </div>
+        </div>
+      
+                            <span role="button" tabindex="0" class="overlay-icon aui-icon aui-icon-small aui-iconfont-edit" aria-label="Edit VP_Source Video Details"></span></div>
+        </div>
+    </li>
+
+    
+    now add a electric blue button next to VP_Source Video Details:
+
+    when clicked :
+    
+    from this area get this link of the source videofor example 
+    https://www.instagram.com/reels/DXq9GyAk6kF/
+    or
+    https://www.youtube.com/shorts/BjZzBJXzjek
+    or
+    https://youtu.be/nJQwsTW0vnM?si=ncVDcMNoA6GjKtWi  {here id is nJQwsTW0vnM}
+
+
+    the link might be from youtube video or shorts or instagram
+
+    now we need to take the id from the link example:
+    DXq9GyAk6kF
+
+    and then it should go to this link https://publications.isha.in/
+    which is already logged in
+
+    and find this area in that page 
+    <input type="text" placeholder="Search..." id="searchBar">
+
+    paste the id here and search <button onclick="search()">Search</button>
+
+    when you click search on the right side the conten will apper 
+
+    <div class="content"><p style="text-align: right"><small><strong>Proofing status: </strong>Proof-Read</small></p> <p></p><p><strong>Notes</strong>:</p> <p><strong style="letter-spacing: 0.0px;">Title &amp; TN</strong>:<strong style="letter-spacing: 0.0px;"> </strong>Push Yourself Beyond Limitations</p> <p><strong>Desc</strong>:<strong> </strong>Pushing oneself beyond limitations<strong> </strong>every moment to<strong> </strong>upgrade one's life<strong>. </strong></p> <p>Register for the seven-month Sadhanapada program offered by Sadhguru Gurukulam to break deep-rooted limitations and lead an intense and energetic life.</p> <p>Time 00:00<span class="tcode S00-00 E00-00"> </span></p> <p><strong>SUPER</strong>:<strong> </strong>You Should Feel Life is Tough</p> <p><strong>Sadhguru</strong>: If your body is not feeling, "Life is tough" – body, not mind – that means you are not doing anything worthwhile. Your body should be constantly stretched. It must complain, but you don't complain. This is the nature of this – the harder you stretch it, the stronger it becomes, the better it becomes. This doesn't mean you are doing something, doing something, doing something. This means, in one way or the other, you're constantly upgrading yourself, either with external work or internal work. But upgradation should happen to a point, wherever you stand, you stand out. This is not in competition with anybody, this life must get to its full scope.</p> <p>This is what Sadhanapada means. If you use this properly, you will always look back at this time as your insurance. Doesn't matter what life throws at you, you will see that nothing really knocks you off.</p> <p><strong>SUPER </strong>: Sadhanapada, Sadhguru Gurukulam.</p> <p>Time 01:09<span class="tcode S01-09 E01-09"> </span></p> <p><strong>END</strong></p> <p></p> <hr><p><small><strong>Notes: </strong>NULL</small></p><div style="margin: 40px 0px 40px 0px;">__</div></div>
+
+
+    extracxt the text conntent from it and give it to ai for translation. 
+
+    only in this case when the output comes it should be in a table formate with 2 coloums 
+
+    coloumn 1: English 
+
+    coloumn 2: Tamil
+
+    now what ever is coming from AI should get pasted in 
+
+    that previous link https://servicedesk.isha.in/browse......
+
+
+in this area
+
+<div class="sd-comment-collapse"><img class="sd-comment-avatar" alt="avatar" src="https://servicedesk.isha.in/secure/useravatar?ownerId=anusuya.visakh&amp;avatarId=18001"><form class="aui dont-default-focus"><textarea id="sd-comment-collapsed-textarea" class="textarea sd-initialised" placeholder="Click to add comment"></textarea></form></div>
+
+
+
+<div role="application" class="tox tox-tinymce jira-editor-container" aria-disabled="false" style="visibility: hidden; height: 218px;" data-mce-style="visibility: hidden; height: 218px;"><div class="tox-editor-container"><div data-alloy-vertical-dir="toptobottom" class="tox-editor-header"><div class="tox-anchorbar"></div></div><div class="tox-sidebar-wrap"><div class="tox-edit-area"><iframe id="mce_0_ifr" frameborder="0" allowtransparency="true" title="Rich Text Area" class="tox-edit-area__iframe"></iframe><grammarly-extension data-grammarly-shadow-root="true" style="visibility: visible !important; position: absolute; top: 0px; left: 0px; pointer-events: none; z-index: auto; --rem: 16;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" class="dnXmp" style="visibility: visible !important; position: absolute; top: 0px; left: 0px; pointer-events: none; z-index: auto; --rem: 16;"></grammarly-extension></div><div role="complementary" class="tox-sidebar"><div data-alloy-tabstop="true" tabindex="-1" class="tox-sidebar__slider tox-sidebar--sliding-closed" style="width: 0px;"><div class="tox-sidebar__pane-container"></div></div></div></div></div><div class="tox-statusbar"><div title="Resize" data-alloy-tabstop="true" tabindex="-1" class="tox-statusbar__resize-handle"><svg width="10" height="10" focusable="false"><g fill-rule="nonzero"><path d="M8.1 1.1A.5.5 0 119 2l-7 7A.5.5 0 111 8l7-7zM8.1 5.1A.5.5 0 119 6l-3 3A.5.5 0 115 8l3-3z"></path></g></svg></div></div><div class="tox-throbber" aria-hidden="true" style="display: none;"></div></div>

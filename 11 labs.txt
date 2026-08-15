@@ -1,0 +1,46 @@
+from elevenlabs import ElevenLabs
+
+# Initialize the client (it will automatically look for the ELEVENLABS_API_KEY environment variable)
+client = ElevenLabs()
+
+# Create the manual dubbing project
+response = client.dubbing.create(
+    # The main video or audio file you want to dub
+    file="path/to/your/video.mp4",
+    
+    # Your custom CSV containing the exact transcriptions and translations
+    csv_file="path/to/your/script.csv",
+    
+    # Required files when using manual CSV mode
+    foreground_audio_file="path/to/foreground_vocals.wav",
+    background_audio_file="path/to/background_music.wav",
+    
+    # Configuration settings
+    target_lang="es",          # The target language code (e.g., 'es' for Spanish)
+    mode="manual",             # Instructs the API to use your CSV instead of auto-translating
+    name="My Manual Dub Project"
+)
+
+print(f"Dubbing project created successfully!")
+print(f"Project ID: {response.dubbing_id}")
+print(f"Expected duration: {response.expected_duration_sec} seconds")
+
+
+
+
+
+Your CSV Format
+For this to work smoothly, your CSV file must strictly follow the predefined format. It should look something like this:
+
+
+
+
+speaker,start_time,end_time,transcription,translation
+Speaker 1,0.5,3.2,Hello and welcome!,Hola y bienvenidos!
+Speaker 2,3.5,6.0,Let's get started.,Empecemos.
+
+(Note: You can use seconds as shown above, or other supported timecodes like hours:minutes:seconds,milliseconds.)
+
+Make sure you have the latest elevenlabs package installed via pip:
+
+pip install elevenlabs
