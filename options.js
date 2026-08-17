@@ -1,10 +1,10 @@
 const DEFAULT_PROMPT = "Translate the following English text to {targetLanguage}. Respond ONLY with the translation. Do not include any explanations, notes, intros, or surrounding quotes. Keep formatting, newlines, and place-holders exactly as in the original English text.";
-const DEFAULT_MODEL = "gemini-2.5-flash";
+const DEFAULT_MODEL = "gemini-3-flash-preview";
 const DEFAULT_LANGUAGE = "Tamil";
 const BACKEND_URL = "https://isw.co.in/billing/api";
 
 const DEFAULT_API_MODE = "saas";
-const DEFAULT_API_BASE_URL = "http://172.18.1.17:14005";
+const DEFAULT_API_BASE_URL = "https://llm.ishaai.win/v1";
 const DEFAULT_API_KEY = "";
 const DEFAULT_API_MODEL = "gemini-3-flash-preview";
 

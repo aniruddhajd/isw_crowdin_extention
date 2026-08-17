@@ -218,6 +218,7 @@ function injectTranslateAllButton() {
 
     button.disabled = true;
     let completed = 0;
+    let failures = 0;
 
     for (const dot of dots) {
       // Confirm dot is still on the screen and not already processed
@@ -236,7 +237,16 @@ function injectTranslateAllButton() {
         `;
 
         await handleTranslation(row, sourceContainer, dot);
-        completed++;
+        
+        if (dot.classList.contains('error')) {
+          failures++;
+          if (failures >= 3) {
+            alert("Translate All halted: Capped at 3 translation failures. Please verify your credentials, endpoint URL, or model permissions.");
+            break;
+          }
+        } else {
+          completed++;
+        }
 
         // Add 500ms safety gap to avoid local model concurrency/rate exhaustion
         await new Promise(resolve => setTimeout(resolve, 500));

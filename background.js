@@ -38,8 +38,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     const { apiMode, apiBaseUrl, apiKey, apiModel, documentText, userEmail } = request;
 
     if (apiMode === "direct") {
-      const baseUrl = apiBaseUrl || "http://172.18.1.17:14005";
-      const cleanUrl = baseUrl.endsWith("/v1") ? `${baseUrl}/chat/completions` : `${baseUrl.replace(/\/$/, "")}/v1/chat/completions`;
+      const defaultUrl = "https://llm.ishaai.win/v1";
+      const baseUrl = (apiBaseUrl || defaultUrl).trim().replace(/\/$/, "");
+      const cleanUrl = baseUrl.endsWith("/v1") ? `${baseUrl}/chat/completions` : `${baseUrl}/v1/chat/completions`;
       
       const payload = {
         model: apiModel || "gemini-3-flash-preview",
