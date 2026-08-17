@@ -260,4 +260,46 @@ document.addEventListener("DOMContentLoaded", () => {
   rechargeBtn.addEventListener("click", () => {
     chrome.tabs.create({ url: "https://isw.co.in/billing/" });
   });
+
+  // Bind extension manifest version dynamically to the DOM
+  const extensionVersion = document.getElementById("extension-version");
+  if (extensionVersion) {
+    extensionVersion.textContent = chrome.runtime.getManifest().version;
+  }
+
+  // Handle "Check for Updates" click events
+  const updateBtn = document.getElementById("updateBtn");
+  if (updateBtn) {
+    updateBtn.addEventListener("click", () => {
+      updateBtn.textContent = "Checking...";
+      updateBtn.disabled = true;
+
+      if (chrome.runtime.requestUpdateCheck) {
+        chrome.runtime.requestUpdateCheck((status, details) => {
+          updateBtn.disabled = false;
+          updateBtn.textContent = "Check for Updates";
+          
+          if (status === "update_available") {
+            showStatus("Update available! Reloading extension to apply.", true);
+            setTimeout(() => {
+              chrome.runtime.reload();
+            }, 2000);
+          } else if (status === "no_update") {
+            showStatus("Extension is up to date!", true);
+          } else if (status === "throttled") {
+            showStatus("Update check throttled. Please try again later.", false);
+          } else {
+            showStatus(`Update check result: ${status}`, true);
+          }
+        });
+      } else {
+        // Fallback for unpacked developer extensions
+        setTimeout(() => {
+          updateBtn.disabled = false;
+          updateBtn.textContent = "Check for Updates";
+          showStatus("Unpacked extension: check for updates is not supported. Use the 'Update' button in chrome://extensions to refresh.", false);
+        }, 800);
+      }
+    });
+  }
 });

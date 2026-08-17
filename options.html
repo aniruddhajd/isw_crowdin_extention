@@ -237,8 +237,13 @@
 
     <div class="status-msg" id="statusMsg"></div>
 
-    <div class="footer">
-      Crowdin Translator &copy; 2026 isw.co.in
+    <div class="footer" style="display: flex; flex-direction: column; gap: 8px; align-items: center;">
+      <div>Crowdin Translator &copy; 2026 isw.co.in</div>
+      <div style="font-size: 0.8rem; color: var(--text-muted); display: flex; gap: 10px; align-items: center;">
+        <span>Version: <span id="extension-version">1.1.0</span></span>
+        <span>•</span>
+        <button id="updateBtn" style="background: none; border: none; color: var(--electric-blue); cursor: pointer; font-family: inherit; font-size: inherit; text-decoration: underline; padding: 0; transition: color 0.2s;">Check for Updates</button>
+      </div>
     </div>
   </div>
 
